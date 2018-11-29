@@ -7,7 +7,9 @@ const ListView = function (container) {
 }
 
 ListView.prototype.bindEvents = function () {
-  PubSub.subscribe('Munro:AllMunrosLoaded', (event) => {
+
+  PubSub.subscribe('Munro:MunrosLoaded', (event) => {
+    this.container.innerHTML = '';
     // Save data in instance variable
     this.munros = event.detail;
     // Run Render function.
